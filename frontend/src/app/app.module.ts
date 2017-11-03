@@ -2,12 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { SearchComponent } from './search/search.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './main/header/header.component';
+import { GalleryComponent } from './main/gallery/gallery.component';
+import { SearchComponent } from './main/search/search.component';
+import { MainComponent } from './main/main.component';
+import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './main/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
+
+const routes: Routes = [
+  { path: '', component: MainComponent },
+  { path: 'admin', component: AdminComponent }
+]
 
 @NgModule({
   declarations: [
@@ -15,11 +23,14 @@ import { MaterialModule } from './material.module';
     HeaderComponent,
     GalleryComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
     MaterialModule
   ],
   providers: [],
